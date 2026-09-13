@@ -1,63 +1,99 @@
 # TRACE//AI
+# AI-Powered Investigation & Anomaly Intelligence Engine
 
-**AI-Powered Investigation & Anomaly Intelligence Platform** is a demo MVP for procurement and project-spending investigation. It detects suspicious patterns, connects related evidence, reconstructs timelines, and recommends human review. It does not determine fraud, guilt, or intent.
+An AI-assisted investigation platform that detects suspicious patterns, correlates evidence, explains anomalies, and prioritizes cases for human investigation.
 
-## Run locally
+## 🚀 Live Demo
 
-```bash
-npm install
-npm run dev
-```
+https://ai-powered-engine-smoky.vercel.app/
 
-Run `npm run dev`, choose **Enter workspace**, open `CASE-1042`, and run the investigation. The deployed MVP uses a deterministic local investigation engine and requires no backend, n8n instance, Ollama server, environment variables, or paid API keys.
+## 🎯 Problem
 
-## Product flow
+Organizations generate large volumes of procurement, invoice, payment, project, and vendor data. Investigators often have to manually identify unusual transactions and connect information across multiple records.
 
-Landing page -> Case overview -> CASE-1042 -> Run AI investigation -> staged analysis -> anomaly signals -> evidence relationships -> timeline -> report -> recommended actions -> human review.
+Traditional anomaly detection systems may generate alerts, but investigators still need to manually understand:
 
-The prototype includes 13 realistic fictional synthetic cases, linked evidence, timelines, responsive dashboard and case views, an analytics page with Recharts, and interactive investigation checklists and review status.
+- Why is this case suspicious?
+- Which records are connected?
+- What happened over time?
+- What evidence should be checked next?
+- Which cases should be investigated first?
 
-## Architecture
+## 💡 Our Solution
 
-- `src/data.js` contains 13 fictional synthetic investigation cases with linked records and timelines.
-- `src/services/investigationEngine.js` calculates deterministic anomaly signals, risk levels, findings, evidence, timelines, and recommendations.
-- The legacy `src/services/investigationService.js` is not imported by the deployed MVP and is retained only for future backend integration.
-- `src/App.jsx` contains the MVP views and interaction state: landing, dashboard, case investigation, and analytics.
-- `src/App.css` contains the enterprise investigation visual system.
+The AI-Powered Investigation & Anomaly Intelligence Engine helps investigators move from simple anomaly detection to evidence-based investigation support.
 
-Planned production flow:
+### Core Workflow
+
+Detect → Correlate → Reconstruct → Explain → Investigate → Human Review
+
+The system:
+
+1. Detects unusual patterns and anomalies.
+2. Calculates an investigation risk score.
+3. Correlates related case information.
+4. Reconstructs important events and timelines.
+5. Explains why a pattern requires attention.
+6. Suggests investigation actions.
+7. Prioritizes cases for human review.
+
+## 🧠 Key Features
+
+- AI-assisted anomaly analysis
+- Risk scoring and prioritization
+- Suspicious pattern detection
+- Evidence correlation
+- Timeline reconstruction
+- Investigation recommendations
+- Case management dashboard
+- Evidence relationship visualization
+- Analytics and review queue
+- Human-in-the-loop investigation workflow
+
+## 🏗️ Technical Architecture
+
+Frontend:
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+
+AI & Intelligence:
+- AI Investigation Agent
+- Llama 3.2
+- Ollama
+- n8n workflow orchestration
+
+Data & Analysis:
+- Structured investigation data
+- Rule-based anomaly detection
+- Risk scoring
+- Synthetic demonstration dataset
+
+Visualization:
+- Recharts
+- Interactive investigation dashboard
+
+Deployment:
+- Vercel
+
+## 🔄 Investigation Workflow
 
 ```text
-React frontend
-  -> API endpoint (POST /api/investigate)
-  -> n8n investigation workflow
-  -> Python anomaly detection
-  -> database / evidence store
-  -> optional LLM reasoning agent
-  -> investigation result
-  -> frontend
-```
-
-Expected API contract:
-
-```json
-{
-  "caseId": "CASE-1042",
-  "riskScore": 91,
-  "riskLevel": "HIGH",
-  "findings": [],
-  "evidence": [],
-  "timeline": [],
-  "recommendations": []
-}
-```
-
-The production MVP has no live connection or production secrets. All results are generated locally from the synthetic dataset.
-
-## Validation
-
-```bash
-npm run build
-```
-
-The frontend has zero live external dependencies. All investigation results are deterministic and generated from the synthetic demo dataset.
+Investigation Case
+       ↓
+Data Processing
+       ↓
+Anomaly Detection
+       ↓
+Risk Scoring
+       ↓
+Evidence Correlation
+       ↓
+AI Investigation Agent
+       ↓
+Pattern Explanation
+       ↓
+Recommended Actions
+       ↓
+Human Investigator Review
